@@ -39,7 +39,7 @@ export default {
 </script>
 <style scoped>
 .headline {
-  height: 1000px;
+  min-height: 1000px;
 }
 
 .background-image {
