@@ -24,5 +24,6 @@ export const actions = {
       },
     };
     commit("setPageContent", res.data);
+    return;
   },
 };

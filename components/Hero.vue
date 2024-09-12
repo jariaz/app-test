@@ -32,8 +32,11 @@ export default {
   },
   mounted() {
     // Simulates an API Call and State Management handling to obtain the dynamic content used on the page
-    this.$store.dispatch("heroModule/fetchPageContent");
-    this.pageContent = this.$store.state.heroModule.pageContent;
+    this.$store
+      .dispatch("heroModule/fetchPageContent")
+      .then(
+        () => (this.pageContent = this.$store.state.heroModule.pageContent)
+      );
   },
 };
 </script>
