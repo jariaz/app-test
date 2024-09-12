@@ -1,13 +1,11 @@
 <template>
-  <div class="d-flex flex-column justify-content-between w-100">
+  <div class="d-flex flex-column w-100">
     <!-- Headline Section -->
     <div class="position-relative headline">
-      <div
-        class="flex-grow-1 background-image position-absolute headline"
-      ></div>
+      <div class="background-image position-absolute headline"></div>
       <div class="d-flex flex-column p-5 mt-5 container position-relative">
         <h1 class="fw-bold mb-2">{{ pageContent.headline }}</h1>
-        <h2 class="">{{ pageContent.subHeadline }}</h2>
+        <h2>{{ pageContent.subHeadline }}</h2>
       </div>
     </div>
 
@@ -33,6 +31,7 @@ export default {
     };
   },
   mounted() {
+    // Simulates an API Call and State Management handling to obtain the dynamic content used on the page
     this.$store.dispatch("heroModule/fetchPageContent");
     this.pageContent = this.$store.state.heroModule.pageContent;
   },
@@ -45,29 +44,19 @@ export default {
 
 .background-image {
   background-image: url("~assets/images/landscape.jpg");
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  opacity: 0.5;
+  opacity: 0.7;
   width: 100%;
-  object-fit: cover;
+
+  /* Used for the color gradient in the Hero Image, making is lighter on top and darker on the bottom */
   -webkit-mask-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0)
   );
   mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-}
 
-@media (min-width: 992px) {
-  .supporting-content {
-    width: 25%;
-    padding: 0;
-  }
-}
-@media (max-width: 991px) {
-  .supporting-content {
-    width: 100%;
-    padding: 1rem;
-  }
+  /* Clip Path used to create the diagonal clipping in the Hero image */
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
 .family-img {
@@ -76,6 +65,11 @@ export default {
 }
 
 @media (min-width: 992px) {
+  .supporting-content {
+    width: 25%;
+    padding: 0;
+  }
+
   body h1 {
     font-size: 56px;
     line-height: 1.1 !important;
@@ -84,6 +78,12 @@ export default {
   body h2 {
     font-size: 40px;
     line-height: 1.1 !important;
+  }
+}
+@media (max-width: 991px) {
+  .supporting-content {
+    width: 100%;
+    padding: 1rem;
   }
 }
 </style>
