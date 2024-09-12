@@ -54,9 +54,6 @@ export default {
     rgba(0, 0, 0, 0)
   );
   mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-
-  /* Clip Path used to create the diagonal clipping in the Hero image */
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
 .family-img {
@@ -65,6 +62,11 @@ export default {
 }
 
 @media (min-width: 992px) {
+  .background-image {
+    /* Clip Path used to create the diagonal clipping in the Hero image */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  }
+
   .supporting-content {
     width: 25%;
     padding: 0;
@@ -81,6 +83,15 @@ export default {
   }
 }
 @media (max-width: 991px) {
+  .headline {
+    margin-bottom: 36px;
+  }
+
+  .background-image {
+    /* Clip Path used to create the diagonal clipping in the Hero image */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+
   .supporting-content {
     width: 100%;
     padding: 1rem;
